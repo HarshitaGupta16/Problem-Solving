@@ -1,0 +1,32 @@
+POWER OF 2
+The question asks us to find if the number is power of 2 or not
+Input :
+2
+1
+98
+
+Output :
+YES
+NO
+
+Explanation:
+Testcase 1:  1 is equal to 2 raised to 0 (20 == 1)
+
+Approach: Perform bitwise AND of number and number-1.
+          If result is 0 then, the number is power of 2
+          else, the number is not the power of 2
+
+#code
+t=int(input())
+while t>0:
+    n=int(input())
+    if(n==0):
+        print("NO")
+    else:
+        if((n & (n-1))==0):
+            print("YES")
+        else:
+            print("NO")
+    t=t-1
+            
+    
