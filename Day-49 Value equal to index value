@@ -1,0 +1,42 @@
+VALUE EQUAL TO INDEX VALUE
+Given an array of positive integers. Your task is to find that element whose value is equal to that of its index value.
+
+Example:
+Input:
+2
+5
+15 2 45 12 7
+1
+1
+
+Output:
+2
+1
+
+Note: There can be more than one element in the array which have same value as their index.
+      You need to print every such element's index separated by a single space.
+      Follows 1-based indexing of the array.
+      
+Approach: If the index value is same as array value, append those values in the new list named lis.
+          If the list is empty, print "Not Found"
+          Else, print the elements of list
+          
+#code
+t=int(input())
+while t>0:
+    n=int(input())
+    arr=list(map(int,input().strip().split()))
+    lis=[]
+    for i in range(n):
+        if i+1==arr[i]:
+            lis.append(arr[i])
+            
+            
+    if len(lis)==0:
+        print("Not Found")
+    else:
+        print(*lis)
+        
+    t=t-1
+            
+            
