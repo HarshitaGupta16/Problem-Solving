@@ -1,0 +1,45 @@
+Is Binary Number Multiple of 3
+The question ask us to find if the given binary number is the multiple of 3
+Example:
+Input:
+2
+011
+100
+
+Output:
+1
+0
+
+Approach: Count the number of 1s at even position and number of 1s at odd position, store them in count_even and count_odd respectively.
+          Subtract count_odd and count_even. 
+          If the difference on dividing by 3 gives 0 as remainder, then return 1 i.e Yes, it is divisible
+          else return 0 i.e. No, it is not divisible.
+
+
+#code
+def convert(s):
+    num=int(s)
+    #print(num)
+    count_even=0
+    count_odd=0
+    while(num!=0):
+        rem1 = num%10
+        #print(rem1)
+        if(rem1==1):
+            count_odd+=1
+        num=int(num//10)
+        rem2 = int(num % 10)
+        if(rem2 == 1):
+            count_even+=1
+        num=int(num//10)
+        #print(num)
+    if(abs(count_odd-count_even) % 3 == 0):
+        print(1)
+    else:
+        print(0)
+
+t=int(input())
+while t>0:
+    s=input()
+    convert(s)
+    t=t-1
