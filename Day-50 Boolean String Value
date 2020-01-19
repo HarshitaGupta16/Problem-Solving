@@ -1,0 +1,42 @@
+BOOLEAN STRING VALUE
+Given a string consisting of only 0, 1, A, B, C where
+A = AND
+B = OR
+C = XOR
+Calculate the value of the string assuming no order of precedence and evaluation is done from left to right.
+
+Example:
+Input: 
+2
+1C1B1B0A0
+1A0B1
+
+Output: 
+0
+1
+
+Explanation:
+Testcase 2: 1 AND 0 OR 1 = 1
+
+Approach: Assign the 1st character of the string i.e any number 0 or 1 to any variable say temp.
+          Run the for loop and increase by 2 steps. 
+          2 numbers have 1 alphabet in between 'A','B','C'.
+          Perform the operation with temp and str[i+1]. Also, convert string to int before performing any operarion.
+          Return temp.
+          
+#code
+t=int(input())
+while t>0:
+    s=input()
+    temp = int(s[0])
+    for i in range(1,len(s),2):
+        if(s[i]=='A'):
+            temp = temp & int(s[i+1])
+        elif(s[i]=='B'):
+            temp = temp | int(s[i+1])
+        elif(s[i]=='C'):
+            temp=temp ^ int(s[i+1])
+            
+    print(temp)
+    t=t-1
+          
