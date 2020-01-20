@@ -1,0 +1,23 @@
+SET BITS
+Given a positive integer N, print count of set bits in it. 
+For example, if the given number is 6(binary: 110), output should be 2 as there are two set bits in it.
+
+Example:
+Input:
+2
+6
+11
+Output:
+2
+3
+
+Approach: Convert the given number to binary using bin method. It converts as 6 to 0b110
+          To count 1 after b So, do slicing [2:].
+          Use count('1') method to count number of ones and print them.
+          
+#code
+t=int(input())
+while t!=0:
+    num = int(input())
+    print(str(bin(num))[2:].count('1'))
+    t=t-1
