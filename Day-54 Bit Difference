@@ -1,0 +1,29 @@
+BIT DIFFERENCE
+You are given two numbers A and B. Write a program to count number of bits needed to be flipped to convert A to B.
+
+Example:
+Input:
+1
+10 20
+Output:
+4
+
+Explanation:
+Testcase1:
+A  = 01010
+B  = 10100
+Number of bits need to flipped = 4
+
+Approach: Two numbers are inputed. Perform xor operation between the 2 numbers and store it in variable x.
+          xor operation gives 1 when bits are dissimilar i.e these dissimilar bits need to be changed to make two numbers same.
+          So, count these number of 1s, which is the answer.
+          
+#code
+t = int(input())
+while t>0:
+    a,b = input().split()
+    a = int(a)
+    b = int(b)
+    x = a ^ b
+    print(bin(x)[2:].count('1'))
+    t=t-1
