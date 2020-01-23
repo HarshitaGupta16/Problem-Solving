@@ -1,0 +1,45 @@
+SWAP TWO NIBBLES IN A BYTE
+Given a byte, swap the two nibbles in it. For example 100 is be represented as 01100100 in a byte (or 8 bits).
+The two nibbles are (0110) and (0100). If we swap the two nibbles, we get 01000110 which is 70 in decimal.
+
+Example:
+
+Input:
+
+2
+100
+129
+
+Output:
+
+70
+24
+
+Approach: Given input is the decimal number, first convert it to binary using bin() function.
+          Remove '0b' using slicing.
+          Now check if the converted binary number is of 8 bits.
+          Using while loop we check and if len(s) is less than or equal to 7, keep on adding '0', till bits become 8.
+          Now swap first 4 bits with last 4 bits by s[4:]+s[0:4]
+          Now convert s to decimal.
+          
+#code
+t=int(input())
+while t>0:
+    n = int(input())
+    bin_n=bin(n)
+    #bin_n=bin_n
+    s = bin_n[2:]
+    #print(s)
+    #s=str(s)
+    while(len(s)<=7):
+        s='0'+s
+        #print(s)
+    st=s[4:]+s[0:4]
+    
+    #s=int(s)    
+    print(int(st,2))
+    t=t-1
+#x=100
+#y=bin(x)
+#s=y[0:1]+y[2:]
+#print(s)
