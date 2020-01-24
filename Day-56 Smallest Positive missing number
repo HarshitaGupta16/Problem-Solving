@@ -1,0 +1,43 @@
+SMALLEST POSITIVE MISSING NUMBER
+You are given an array arr[] of N integers including 0. The task is to find the smallest positive number missing from the array.
+Note: Expected solution in O(n) time using constant extra space.
+
+Example:
+Input:
+2
+5
+1 2 3 4 5
+5
+0 -10 1 3 -20
+Output:
+6
+2
+
+Explanation:
+Testcase 1: Smallest positive missing number is 6.
+Testcase 2: Smallest positive missing number is 2.
+
+Approach: Take n=size_of_input_array + 1.
+          Take input array and add zero at the end.
+          Now, take an element one by one with for loop.
+          Inside this run another loop that will put the elements of array at it's index value by swapping.
+          Now, after coming out of for loop, take a for loop that checks if the array has value from i=1(lowest value)
+          If it is not present then, print the i+1 and break.
+         
+#code
+for _ in range(int(input())):
+#while t>0:
+    n=int(input())+1
+    arr=input().split()
+    arr.append(0)
+    for i in range(n):
+        t=int(arr[i])
+        while t>0 and t<n and int(arr[t-1])!=t:
+            temp = int(arr[t-1])
+            arr[t-1] = t
+            t = temp
+    for i in range(n):
+        if(int(arr[i])!=i+1):
+            print(i+1)
+            break
+    #t=t-1
