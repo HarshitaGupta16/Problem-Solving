@@ -1,0 +1,39 @@
+COUNT DISTINCT ELEMENTS IN EVERY WINDOW
+Given an array A[] of size N and an integer K.
+Your task is to complete the function countDistinct() which prints the count of distinct numbers in all windows of size k in the array A[].
+
+Example(To be used only for expected output):
+Input:
+2
+7 4
+1 2 1 3 4 2 3
+3 2
+4 1 1
+
+Output:
+3 4 4 3
+2 1
+
+Approach: Run the loop n-k+1 times.
+          Use set as it only contains distinct values of window size. Window size is taken out by slicing.
+          Calulate length of the set and print it with spacing.
+          
+# your task is to complete this function
+# function should print count of windows
+def countDistinct(arr, n, k):
+    # Code here
+    for i in range(n-k+1):
+        print(len(set(arr[i:i+k])),end=" ")
+    print("")
+
+
+#{ 
+#  Driver Code Starts
+if __name__=='__main__':
+    t = int(input())
+    for i in range(t):
+        n,k = list(map(int, input().strip().split()))
+        arr = list(map(int, input().strip().split()))
+        countDistinct(arr, n, k)
+
+# } Driver Code Ends
