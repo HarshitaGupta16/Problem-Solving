@@ -1,0 +1,83 @@
+ARRAY PAIR SUM DIVISIBLITY PROBLEM
+Given an array of integers and a number k.
+Write a function that returns true if given array can be divided into pairs such that sum of every pair is divisible by k.
+
+Example:
+Input:
+2
+4
+9 7 5 3
+6
+4
+91 74 66 48
+10
+
+Output:
+True
+False
+
+Approach: A simple solution could be with O(n^2) complexity, where we can take two loops i and j=i+1.
+          Check if (arr[i]+arr[j])%k is 0 if n is even then return True else False.
+          A solution with O(n) compleity using hashmap is implemented.
+          First check if the size of array is odd or even. if odd then return false and no futher implementaion, else:
+          Store the frequency of remainder of each element when divided by k in an hashmap.
+          Now again traverse array, store remainder of each array in rem. Now there are 3 conditions:
+          1. If rem*2 is equal to k then frequency of rem should be even else return false.
+          2. elseif rem==0 then freq[rem] should be even.
+          3. else if freq[rem] should be equal to freq[k-rem], else return false.
+          return true if false is not returned anywhere.
+         
+#include <bits/stdc++.h>
+using namespace std;
+
+bool ArraySumPair(int arr[],int n,int k)
+{
+    if(n%2!=0)
+        return false;
+    map<int,int>freq;
+    for(int i=0;i<n;i++)
+    {
+        freq[arr[i]%k]++;
+    }
+        
+    for(int i=0;i<n;i++)
+    {
+        int rem=arr[i]%k;
+        if(2*rem==k)
+        {
+            if(freq[rem]%2!=0)
+                return false;
+        }
+        else if(rem==0)
+        {
+            if(freq[rem]%2!=0)
+                return false;
+        }
+        else if(freq[rem] != freq[k-rem])
+            return false;
+    }
+    return true;
+}
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--)
+	{
+    	int n,k;
+    	cin>>n;
+    	int arr[n];
+    	for(int i=0;i<n;i++)
+    	{
+    	    cin>>arr[i];
+    	}
+    	cin>>k;
+    	if(ArraySumPair(arr,n,k))
+    	    cout<<"True";
+    	else
+    	    cout<<"False";
+    	cout<<endl;
+	}
+	return 0;
+}
