@@ -1,0 +1,55 @@
+LONGEST CONSECUTIVE SUBSEQUENCE
+Given an array arr[] of positive integers. 
+Find the length of the longest sub-sequence such that elements in the subsequence are consecutive integers, 
+the consecutive numbers can be in any order.
+
+Example:
+Input:
+2
+7
+2 6 1 9 4 5 3
+7
+1 9 3 10 4 20 2
+
+Output:
+6
+4
+
+Explanation:
+Testcase 1:  The consecutive numbers here are 1, 2, 3, 4, 5, 6. These 6 numbers form the longest consecutive subsquence.
+
+Testcase2: 1, 2, 3, 4 is the longest consecutive subsequence.
+
+Approach: Since we have to find the longest consecutive subsequence, so their should not be duplicate elements.
+          Take a set and add the values of array 'arr' in set 's'.
+          Now initialize count=0.
+          Run a loop from i=0 to n, if arr[i]-1 is not in set, then j=arr[i].
+          Now run a while loop which will run from smallest element in array till its consecutive elements are present in s.
+          count=max(count,j-arr[i]). Update count with maximum value.
+          Return count.
+          
+#code
+#from set import Set
+def LongestConsequtiveSubsequence(arr,n):
+    s=set()
+    count=0
+    for item in arr:
+        s.add(item)
+        
+    for i in range(n):
+        if(arr[i]-1 not in s):
+            j=arr[i]
+            while(j in s):
+                j+=1
+                
+            count=max(count,j-arr[i])
+            
+    return count
+    
+
+for _ in range(int(input())):
+    n=int(input())
+    arr=list(map(int,input().strip().split()))
+    res = LongestConsequtiveSubsequence(arr,n)
+    print(res)
+          
