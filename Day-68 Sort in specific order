@@ -1,0 +1,49 @@
+SORT IN SPECIFIC ORDER
+Given an array A of positive integers.
+Your task is to sort them in such a way that the first part of the array contains odd numbers sorted in descending order, rest portion contains even numbers sorted in ascending order.
+
+Example:
+Input:
+2
+7
+1 2 3 5 4 7 10
+7
+0 4 5 3 7 2 1
+
+Output:
+7 5 3 1 2 4 10
+7 5 3 1 0 2 4
+
+Explanation:
+Testcase1: Array elements 7 5 3 1 are odd and sorted in descending order, whereas 2 4 10 are even numbers and sorted in ascending order.
+
+Approach: Take 2 empty lists and lis1 and lis2. 
+          Append all the odd numbers in lis1 and evn numbers in lis2.
+          Sort lis1 in descending order and lis2 in ascending order.
+          First print lis then lis2.
+          
+#code
+t=int(input())
+while t>0:
+    n=int(input())
+    arr=list(map(int,input().strip().split()))
+    lis1=[]
+    lis2=[]
+    for i in range(n):
+        if(arr[i]%2!=0):
+            lis1.append(arr[i])                #odd elements list
+        else:
+            lis2.append(arr[i])                #even elements list
+            
+    lis1.sort(reverse=True)
+    lis2.sort()
+    for i in range(len(lis1)):
+        print(lis1[i],end=" ")
+    for i in range(len(lis2)):
+        print(lis2[i],end=" ")
+        
+    print(" ")
+    t=t-1
+        
+          
+          
