@@ -1,0 +1,54 @@
+MAXIMUM NUMBER OF 1's ROW
+Given a boolean 2D array, where each row is sorted. Find the row with the maximum number of 1s.
+
+Example
+Input matrix
+0 1 1 1
+0 0 1 1
+1 1 1 1  // this row has maximum 1s
+0 0 0 0
+
+Output: 2
+
+Input:
+2
+3 4
+0 1 1 1 0 0 1 1 0 0 1 1
+2 2
+0 1 1 1
+ 
+Output:
+0
+1
+
+Approach: Using numpy package we take matrix input in one line.
+          Initialize maxi=0 which stores maximum count and index=0 which stores row number.
+          Run 2 loops, outer loop runs for row and inner loop runs column.
+          Initialize count=0.
+          Inside inner loop, if element of a row is  then count++.
+          Check if count is greater than maxi then maxi=count and index=i.
+          Print i that is the row with maximum 1's.
+          
+#code
+import numpy as np
+for _ in range(int(input())):
+    n,m = list(map(int,input().strip().split()))
+    #matrix=[[int(input()).strip().split() for i in range(m)]for j in range(n)]
+    entries = list(map(int, input().split())) 
+    matrix = np.array(entries).reshape(n, m)
+        
+    maxi=0
+    index=0
+    for i in range(n):
+        count=0
+        for j in range(m):
+            if(matrix[i][j]==1):
+                count+=1
+        
+        if(count>maxi):
+            maxi=count
+            index=i
+            
+    print(index)
+                
+          
