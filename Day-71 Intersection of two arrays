@@ -1,0 +1,57 @@
+INTERSECTION OF TWO ARRAYS
+Given two arrays A and B respectively of size N and M. 
+The task is to print the count of elements in the intersection (or common elements) of the two arrays.
+For this question, intersection of two arrays can be defined as the set containing distinct common elements between the two arrays.
+
+Example:
+Input:
+4
+5 3
+89 24 75 11 23
+89 2 4
+6 5
+1 2 3 4 5 6
+3 4 5 6 7
+4 4
+10 10 10 10
+20 20 20 20
+3 3
+10 10 10
+10 10 10
+
+Output:
+1
+4
+0
+1
+ 
+
+Explanation:
+Testcase 1: 89 is the only element in the intersection of two arrays.
+Testcase 2: 3 4 5 and 6 are the elements in the intersection of two arrays.
+
+Apprach: Initialize a set s and a list lis.
+         Add each element of arr1 in set s.
+         Now traverse arr2, check if the element of the arr2 lies in set s.
+         If lies then this is the common element, so append this in list lis.
+         Now print length of lis which tells the number of elements common in both arrays which is the intersection.
+         
+#code
+t=int(input())
+while t>0:
+    n,k = list(map(int,input().strip().split()))
+    arr1 = list(map(int,input().strip().split()))
+    arr2 = list(map(int,input().strip().split()))
+    s = set()
+    lis=[]
+    for i in range(n):
+        s.add(arr1[i])
+    #print(s)
+    for i in range(k):
+        if(arr2[i] in s):
+            lis.append(arr2[i])
+            s.remove(arr2[i])
+            
+    print(len(lis))
+            
+    t=t-1
