@@ -1,0 +1,32 @@
+SUM OF DISTINCT ELEMENTS
+You are given an array of size N. Find the sum of distinct elements in an array.
+
+Example:
+Input:
+3
+5
+1 2 3 4 5
+5
+5 5 5 5 5
+4
+22 33 22 33
+Output:
+15
+5
+55
+
+Approach: Take the array input and its size n.
+          Put the array in the set. Now, it will have all distinct elements.
+          Use sum() function, pass set into sum().
+          This will give the sum of distinct elements.
+          
+#code
+t = int(input())
+while t>0:
+    n = int(input())
+    arr = list(map(int,input().strip().split()))
+    s = set()
+    for i in range(n):
+        s.add(arr[i])
+    print(sum(s))
+    t=t-1
