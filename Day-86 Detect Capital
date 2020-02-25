@@ -1,0 +1,33 @@
+DETECT CAPITAL
+Given a word, you need to judge whether the usage of capitals in it is right or not.
+We define the usage of capitals in a word to be right when one of the following cases holds:
+
+All letters in this word are capitals, like "USA".
+All letters in this word are not capitals, like "leetcode".
+Only the first letter in this word is capital, like "Google".
+Otherwise, we define that this word doesn't use capitals in a right way.
+ 
+Example 1:
+
+Input: "USA"
+Output: True
+ 
+Example 2:
+
+Input: "FlaG"
+Output: False
+
+Approach: Take 3 string variables, cap, low and mix.
+          First, convert the word to all upper case characters and store it in cap.
+          Second, convert the word to all lower case characters and store it in low.
+          Third, convert first letter to upper and other letters to lower case and store it in mix variable.
+          If word matches any of the above variable then return true else return false.
+          
+#code
+class Solution:
+    def detectCapitalUse(self, word: str) -> bool:
+        cap = word.upper()
+        low = word.lower()
+        mix = word[0].upper() + word[1:].lower()
+        return word in [cap,low,mix]
+        
