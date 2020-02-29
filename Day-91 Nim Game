@@ -15,7 +15,8 @@ Explanation: If there are 4 stones in the heap, then you will never win the game
              
 Approach: If the number is divisible by 4 then return False.
           Else, return True.
-          
+
+#Code
 class Solution:
     def canWinNim(self, n: int) -> bool:
         return n % 4 != 0
