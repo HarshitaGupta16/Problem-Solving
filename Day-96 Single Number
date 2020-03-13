@@ -1,0 +1,29 @@
+SINGLE NUMBER
+Given a non-empty array of integers, every element appears twice except for one. Find that single one.
+
+Note:
+Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+
+Example 1:
+
+Input: [2,2,1]
+Output: 1
+Example 2:
+
+Input: [4,1,2,1,2]
+Output: 4
+
+Approach: 
+  Method 1: Subtract sum of all elements of list from twice of sum of all distinct elements of list.
+  
+  Method 2: If we xor any number with 0 then we get that number only.
+            So all the paired number will become 0 and upaired number is returned.
+
+#Code
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        #return 2 * sum(set(nums)) - sum(nums)
+        a = 0
+        for i in nums:
+            a ^= i
+        return a
