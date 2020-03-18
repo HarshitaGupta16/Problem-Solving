@@ -1,0 +1,20 @@
+SUM OF TWO INTEGERS
+Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
+
+Example 1:
+Input: a = 1, b = 2
+Output: 3
+
+Example 2:
+Input: a = -2, b = 3
+Output: 1
+
+Approach: Add number b to a one by one by decreasing it by 1, till it becomes 0.
+          In this way, a is added to b.
+
+class Solution:
+    def getSum(self, a: int, b: int) -> int:
+        while(b > 0):
+            a += 1
+            b -= 1
+        return a
