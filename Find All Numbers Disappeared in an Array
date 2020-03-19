@@ -1,0 +1,32 @@
+FIND ALL NUMBERS DISAPPEARED IN AN ARRAY
+
+Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
+Find all the elements of [1, n] inclusive that do not appear in this array.
+Could you do it without extra space and in O(n) runtime? You may assume the returned list does not count as extra space.
+
+Example:
+Input:
+[4,3,2,7,8,2,3,1]
+
+Output:
+[5,6]
+
+Approach: Given a list that has only natural numbers. 
+          The length of list donate the count of natural numbers in the list.
+          Create a set s that contains the distinct elements.
+          Set s is created to remove the numbers that appear twice.
+          Run a loop starting with 1 till length of list + 1. 
+          Through the index check if that number is present in set or not. If not then append it in the list named lis.
+          Return lis.
+
+#code
+class Solution:
+    def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
+        s = set(nums)
+        lis = []
+        for i in range(1,len(nums)+1):
+            if i not in s:
+                lis.append(i)
+                
+        return lis
+        
